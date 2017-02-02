@@ -14,8 +14,8 @@ appRouter.init = _listen;
  * @param {string} path
  */
 function _navigate (path) {
-  var current = window.location.href;
-  window.location.href = current.replace(/#(.*)$/, '') + '#' + path;
+    var current = window.location.href;
+    window.location.href = current.replace(/#(.*)$/, '') + '#' + path;
 }
 
 var url = null;
