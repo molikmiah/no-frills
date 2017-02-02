@@ -6,12 +6,15 @@
     </head>
 
     <body>
-        <button onclick="navigate('');">Home</button>
-        <button onclick="navigate('/about');">About Us</button>
-        <button onclick="navigate('/news');">News</button>
+        <button onclick="router.navigate('');">Home</button>
+        <button onclick="router.navigate('/about');">About Us</button>
+        <button onclick="router.navigate('/news');">News</button>
 
         <div id="myApp"></div>
     </body>
 
+    <!-- load essential js dependencies -->
     <script src="router.js"></script>
+    <!-- main script for this site -->
+    <script src="app.js"></script>
 </html>

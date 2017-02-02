@@ -1,12 +1,18 @@
-//////////////////////////////////////////////////
-// A lightweight router developed by Molik Miah //
-//////////////////////////////////////////////////
+/**
+ * Namespace
+ */
+var appRouter = appRouter || {};
+
+/**
+ * Public Methods and Functions
+ */
+appRouter.navigate = _navigate;
 
 /**
  * This function can be called to navigate to given 'path'
  * @param {string} path
  */
-function navigate (path) {
+function _navigate (path) {
   var current = window.location.href;
   window.location.href = current.replace(/#(.*)$/, '') + '#' + path;
 }
@@ -17,16 +23,16 @@ function navigate (path) {
  * @param {number} delay The timer delay in ms
  */
 var url = null;
-function listen (delay) {
+function _listen (delay) {
   var current = window.location.hash;
 
   if (current !== url) {
     console.log('URL changed to ' + current);
     url = current;
-    loadPage(current, 'myApp');
+    _loadPage(current, 'myApp');
   }
 
-  setTimeout(listen, delay);
+  setTimeout(_listen, delay);
 }
 
 /**
@@ -35,7 +41,7 @@ function listen (delay) {
  * @param {string} param This is the hash and it will be used to determine which template to inject
  * @param {string} bootstrapId This is the html element id used to insert the template content
  */
-function loadPage (param, bootstrapId) {
+function _loadPage (param, bootstrapId) {
     // DOM insert
     switch (param) {
         case '':
@@ -43,11 +49,11 @@ function loadPage (param, bootstrapId) {
             break;
 
         case '#/about':
-            getTemplate('/views/about.html', bootstrapId);
+            _getTemplate('/views/about.html', bootstrapId);
             break;
 
         case '#/news':
-            getTemplate('/views/news.html', bootstrapId);
+            _getTemplate('/views/news.html', bootstrapId);
             break;
 
         default:
@@ -59,7 +65,7 @@ function loadPage (param, bootstrapId) {
  * Template loader and injector
  * @param {string} filePath This is the file path to the html view you want to load
  */
-function getTemplate(filePath, bootstrapId) {
+function _getTemplate(filePath, bootstrapId) {
     // validation, only allow getTemplate() to be used to get .html files
     if (filePath.includes('.html') === false) {
         throw new Error('getTemplate() can only be used to get .html template files. Please ensure ' + 
@@ -86,4 +92,4 @@ function getTemplate(filePath, bootstrapId) {
 }
 
 // trigger listener
-listen(200);
+_listen(200);
