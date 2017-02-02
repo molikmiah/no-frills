@@ -43,12 +43,11 @@ function loadPage (param, bootstrapId) {
             break;
 
         case '#/about':
-            // document.getElementById(bootstrapId).innerHTML = '<h1>About Us</h1>';
-            getTemplate('/views/news.html', bootstrapId);
+            getTemplate('/views/about.html', bootstrapId);
             break;
 
         case '#/news':
-            document.getElementById(bootstrapId).innerHTML = '<h1>News</h1>';
+            getTemplate('/views/news.html', bootstrapId);
             break;
 
         default:
@@ -61,6 +60,13 @@ function loadPage (param, bootstrapId) {
  * @param {string} filePath This is the file path to the html view you want to load
  */
 function getTemplate(filePath, bootstrapId) {
+    // validation, only allow getTemplate() to be used to get .html files
+    if (filePath.includes('.html') === false) {
+        throw new Error('getTemplate() can only be used to get .html template files. Please ensure ' + 
+        'the correct path is used as \'' + filePath + '\' is not valid!');
+    }
+
+    // get file request
     var xhr= new XMLHttpRequest();
     xhr.open('GET', filePath, true);
     xhr.onreadystatechange= function() {
