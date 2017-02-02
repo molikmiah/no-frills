@@ -7,6 +7,7 @@ var appRouter = appRouter || {};
  * Public Methods and Functions
  */
 appRouter.navigate = _navigate;
+appRouter.init = _listen;
 
 /**
  * This function can be called to navigate to given 'path'
@@ -17,22 +18,27 @@ function _navigate (path) {
   window.location.href = current.replace(/#(.*)$/, '') + '#' + path;
 }
 
+var url = null;
 /**
  * Sets up a listener to watch the url hash and when this changes it will
  * trigger the loadPage()
  * @param {number} delay The timer delay in ms
  */
-var url = null;
 function _listen (delay) {
-  var current = window.location.hash;
+    // default delay if none specified
+    if (!delay) {
+        delay = 200;
+    }
 
-  if (current !== url) {
-    console.log('URL changed to ' + current);
-    url = current;
-    _loadPage(current, 'myApp');
-  }
+    // store current location hash
+    var current = window.location.hash;
 
-  setTimeout(_listen, delay);
+    if (current !== url) {
+        url = current;
+        _loadPage(current, 'myApp');
+    }
+
+    setTimeout(_listen, delay);
 }
 
 /**
@@ -90,6 +96,3 @@ function _getTemplate(filePath, bootstrapId) {
 
     xhr.send();
 }
-
-// trigger listener
-_listen(200);
