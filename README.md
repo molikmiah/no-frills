@@ -17,4 +17,23 @@ before the change is recognised.
 its public methods which are:
     - appRouter.navigate() example use `<button onclick="router.navigate('');">Home</button>`
 
-    
+5. you need to define the routes before you do `appRouter.init()`, example of this below:
+~~~~
+router.routeMapper = [
+    {
+        url: '',
+        template: '<h1>Inline template rather than pointing to a url for a view</h1>'
+    },
+
+    {
+        url: '#/about',
+        templateUrl: '/views/about.html'
+    },
+
+    {
+        url: '#/news',
+        templateUrl: '/views/news.html'
+    }
+];
+~~~~
+

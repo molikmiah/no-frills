@@ -8,6 +8,7 @@ var appRouter = appRouter || {};
  */
 appRouter.navigate = _navigate;
 appRouter.init = _listen;
+appRouter.routeMapper = null;
 
 /**
  * This function can be called to navigate to given 'path'
@@ -48,22 +49,19 @@ function _listen (delay) {
  * @param {string} bootstrapId This is the html element id used to insert the template content
  */
 function _loadPage (param, bootstrapId) {
-    // DOM insert
-    switch (param) {
-        case '':
-            document.getElementById(bootstrapId).innerHTML = '<h1>Home</h1>';
-            break;
+    // find the correct route object from the Array of route definitions
+    var requestedRouteObject = appRouter.routeMapper.find(function(routeObj) {
+        return routeObj.url === param;
+    });
 
-        case '#/about':
-            _getTemplate('/views/about.html', bootstrapId);
-            break;
+    // if a templateUrl is defined, then use getTemplate()
+    if (typeof requestedRouteObject.templateUrl !== 'undefined') {
+        _getTemplate(requestedRouteObject.templateUrl, bootstrapId);
+    }
 
-        case '#/news':
-            _getTemplate('/views/news.html', bootstrapId);
-            break;
-
-        default:
-            break;
+    // if a template is defined, then inject this html from the string
+    if (typeof requestedRouteObject.template !== 'undefined') {
+        document.getElementById(bootstrapId).innerHTML = requestedRouteObject.template;
     }
 }
 
