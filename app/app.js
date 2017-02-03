@@ -1,4 +1,3 @@
-// start appRouter
 // bind appRouter plugin to the router namespace to be used in our web-app
 var router = appRouter;
 
@@ -12,13 +11,14 @@ router.routeMapper = [
 
     {
         url: '#/about',
-        templateUrl: '/views/about.html'
+        templateUrl: '../app/views/about.html'
     },
 
     {
         url: '#/news',
-        templateUrl: '/views/news.html'
+        templateUrl: '../app/views/news.html'
     }
 ];
 
+// start router
 router.init();
