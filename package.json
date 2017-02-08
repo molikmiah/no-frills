@@ -1,0 +1,26 @@
+{
+  "name": "molik-js-client-router",
+  "version": "1.0.0",
+  "description": "A client side javascript router by Molik Miah. Custom built to be lightweight and free of bloat.",
+  "scripts": {
+    "server": ". ./server.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "router",
+    "client-side",
+    "router",
+    "MVC",
+    "SPA",
+    "Sinlge Page Apps"
+  ],
+  "author": "Molik A Miah",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "lodash": "^4.17.4"
+  }
+}

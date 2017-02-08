@@ -8,17 +8,21 @@
 
     <body>
         <div class="container">
-            
+
             <div class="nav">
                 <button onclick="router.navigate('');">Home</button>
                 <button onclick="router.navigate('/about');">About Us</button>
                 <button onclick="router.navigate('/news');">News</button>
             </div>
-            
+
             <div id="myApp"></div>
 
         </div>
     </body>
+
+    <!-- include 3rd party libraries -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/lodash/lodash.min.js"></script>
 
     <!-- load essential js dependencies -->
     <script src="../lib/router.js"></script>

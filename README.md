@@ -37,3 +37,4 @@ router.routeMapper = [
 ];
 ~~~~
 
+6. `npm run server` will launch a development server at http://localhost:8080 if you have python installed
