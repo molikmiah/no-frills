@@ -3,17 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title>Molik Framework Development</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
 
     <body>
-        <button onclick="router.navigate('');">Home</button>
-        <button onclick="router.navigate('/about');">About Us</button>
-        <button onclick="router.navigate('/news');">News</button>
+        <div class="container">
+            
+            <div class="nav">
+                <button onclick="router.navigate('');">Home</button>
+                <button onclick="router.navigate('/about');">About Us</button>
+                <button onclick="router.navigate('/news');">News</button>
+            </div>
+            
+            <div id="myApp"></div>
 
-        <hr>
-        <a href="#/news">link to the latest news</a>
-
-        <div id="myApp"></div>
+        </div>
     </body>
 
     <!-- load essential js dependencies -->
