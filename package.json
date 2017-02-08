@@ -5,20 +5,8 @@
   "scripts": {
     "server": ". ./server.sh"
   },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "keywords": [
-    "router",
-    "client-side",
-    "router",
-    "MVC",
-    "SPA",
-    "Sinlge Page Apps"
-  ],
   "author": "Molik A Miah",
-  "license": "ISC",
+  "license": "No license available. For use by Molik A Miah only.",
   "dependencies": {
     "jquery": "^3.1.1",
     "lodash": "^4.17.4"
