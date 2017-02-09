@@ -7,7 +7,6 @@
   },
   "author": "Molik A Miah",
   "dependencies": {
-    "jquery": "^3.1.1",
     "mustache": "^2.3.0"
   }
 }
