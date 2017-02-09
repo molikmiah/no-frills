@@ -1,3 +1,7 @@
+/**
+ * This is an example app.js which would be created by the web-app developer.
+ */
+
 // bind appRouter plugin to the router namespace to be used in our web-app
 var router = appRouter;
 
