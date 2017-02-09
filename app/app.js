@@ -5,7 +5,12 @@ var router = appRouter;
 router.routeMapper = [
     {
         url: '',
-        template: '<h1>Inline template rather than pointing to a url for a view</h1>'
+        template: '<h1>Inline template rather than pointing to a url for a view</h1><hr>Hello from the lovely city of {{ city }}.',
+        controller: (function () {
+            return {
+                city: 'Leeds'
+            };
+        })()
     },
 
     {
