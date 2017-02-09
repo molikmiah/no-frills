@@ -14,9 +14,7 @@ router.routeMapper = [
 
             // return data for use in template
             return {
-                a: a,
-                sum: sum,
-                user: fullName(firstName, surname)
+                city: city
             };
         })()
     },
