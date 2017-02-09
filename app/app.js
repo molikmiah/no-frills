@@ -1,5 +1,6 @@
 /**
  * This is an example app.js which would be created by the web-app developer.
+ * This file was created while developing the routing framework.
  */
 
 // bind appRouter plugin to the router namespace to be used in our web-app
