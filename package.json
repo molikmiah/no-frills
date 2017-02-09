@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "A client side javascript router by Molik Miah. Custom built to be lightweight and free of bloat.",
   "scripts": {
-    "server": ". ./server.sh"
+    "start": ". ./server.sh"
   },
   "author": "Molik A Miah",
-  "license": "No license available. For use by Molik A Miah only.",
   "dependencies": {
     "jquery": "^3.1.1",
-    "lodash": "^4.17.4"
+    "mustache": "^2.3.0"
   }
 }
