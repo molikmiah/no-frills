@@ -7,8 +7,16 @@ router.routeMapper = [
         url: '',
         template: '<h1>Inline template rather than pointing to a url for a view</h1><hr>Hello from the lovely city of {{ city }}.',
         controller: (function () {
+            // example of the ideal controller
+
+            // variables
+            var city = 'Leeds, UK';
+
+            // return data for use in template
             return {
-                city: 'Leeds'
+                a: a,
+                sum: sum,
+                user: fullName(firstName, surname)
             };
         })()
     },
