@@ -1,8 +1,7 @@
 // bind appRouter plugin to the router namespace to be used in our web-app
 var router = appRouter;
 
-
-// set up routes
+// set up route for this app
 router.routeMapper = [
     {
         url: '',
@@ -11,7 +10,29 @@ router.routeMapper = [
 
     {
         url: '#/about',
-        templateUrl: '../app/views/about.html'
+        templateUrl: '../app/views/about.html',
+        controller: (function () {
+            // example of the ideal controller
+
+            // variables
+            var a = 1;
+            var b = 2;
+            var sum = a + b;
+            var firstName = 'Molik';
+            var surname = 'Miah';
+
+            // controller logic
+            function fullName(first, last) {
+                return first + ' ' + last;
+            }
+
+            // return data for use in template
+            return {
+                a: a,
+                sum: sum,
+                user: fullName(firstName, surname)
+            };
+        })()
     },
 
     {

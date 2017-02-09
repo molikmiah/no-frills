@@ -2,18 +2,4 @@
 
 <div>Exploring what it takes to create a lightweight router!</div>
 
-<script type="text/x-tpl" id="tplContent">
-    <p>Hi, my name is <%= user %>.</p>
-</script>
-
-<div id="renderer"></div>
-
-<script type="text/javascript">
-    console.log('tpl engine');
-
-    var templateContents = $('#tplContent').html();
-    var popupTemplate = _.template(templateContents);
-    var rendered = popupTemplate({user:'molik'});
-
-    $('#renderer').html(rendered);
-</script>
+<p>Hi, my name is <%= user %>.</p>
