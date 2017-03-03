@@ -13,6 +13,6 @@ The framework was created after i asked the question: "How hard can it be to mak
 * template engine with Mustache integrated
 
 ## License
-[no-frills.js is licensed under MIT](https://github.com/molikmiah/no-frills/blob/master/LICENSE/NO_FRILLS_JS.md)
+This framework is licensed under MIT.
 
-[3rd party library licenses can be found by clicking here](https://github.com/molikmiah/no-frills/blob/master/LICENSE/3RD_PARTY_LIBRARIES.md)
+The license agreement, including those of 3rd party libraries/tools, can be found by [clicking here](https://github.com/molikmiah/no-frills/blob/master/LICENSE.md).
