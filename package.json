@@ -1,7 +1,7 @@
 {
-  "name": "molik-js-client-router",
+  "name": "no-frills",
   "version": "1.0.0",
-  "description": "A client side javascript router by Molik Miah. Custom built to be lightweight and free of bloat.",
+  "description": "The minimalistic SPA (Single Page Application) framework without any bloat.",
   "scripts": {
     "start": ". ./server.sh"
   },

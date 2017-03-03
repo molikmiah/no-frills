@@ -1,11 +1,11 @@
 /*
- _______ _______ _______ _______ _______
-|\     /|\     /|\     /|\     /|\ .js /|
-| +---+ | +---+ | +---+ | +---+ | +---+ |
-| |   | | |   | | |   | | |   | | |   | |
-| |M  | | |o  | | |l  | | |i  | | |k  | |
-| +---+ | +---+ | +---+ | +---+ | +---+ |
-|/_____\|/_____\|/_____\|/_____\|/_____\|
+ * no-frills.js
+ * Copyright 2017 Molik Miah, MIT LICENSE.
+ * W: http://molikmiah.githib,io | http://molik.co.uk
+ *
+ * file  : core.template-engine.js
+ * group : core-framework
+ * desc  : handles getting/rendering templates and binding view to a controller
 */
 
 /**
@@ -45,8 +45,20 @@ var tpl = (function () {
             }
 
             // on success
+            // get controller for this view
+            var controller = null;
+            if (routeData.controller) {
+                controller = appRouter.controllers[routeData.controller];
+            }
+
+            // log error if we cannot find the controller defined in the router
+            if (typeof controller === 'undefined') {
+                throw new Error('Error rendering template. Cannot find controller "' + routeData.controller + '".');
+            }
+
+            // parse template
             var template = this.responseText;
-            var rendered = Mustache.render(template, routeData.controller);
+            var rendered = Mustache.render(template, controller);
             document.getElementById(bootstrapId).innerHTML = rendered;
         };
 
@@ -59,8 +71,12 @@ var tpl = (function () {
      * @param {string} bootstrapId This is where the template will be injected
      */
     function _processTemplate(routeData, bootstrapId) {
+        // get controller for this view
+        var controller = appRouter.controllers[routeData.controller];
+
+        // parse template
         var template = routeData.template;
-        var rendered = Mustache.render(template, routeData.controller);
+        var rendered = Mustache.render(template, controller);
         document.getElementById(bootstrapId).innerHTML = rendered;
     }
 

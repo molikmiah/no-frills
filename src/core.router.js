@@ -1,11 +1,11 @@
 /*
- _______ _______ _______ _______ _______
-|\     /|\     /|\     /|\     /|\ .js /|
-| +---+ | +---+ | +---+ | +---+ | +---+ |
-| |   | | |   | | |   | | |   | | |   | |
-| |M  | | |o  | | |l  | | |i  | | |k  | |
-| +---+ | +---+ | +---+ | +---+ | +---+ |
-|/_____\|/_____\|/_____\|/_____\|/_____\|
+ * no-frills.js
+ * Copyright 2017 Molik Miah, MIT LICENSE.
+ * W: http://molikmiah.githib,io | http://molik.co.uk
+ *
+ * file  : core.router.js
+ * group : core-framework
+ * desc  : the main routing framework which handles routes and transitions
 */
 
 /**
@@ -22,7 +22,8 @@ var appRouter = (function () {
         navigate: _navigate,
         init: _listen,
         routeMapper: null,
-        config: config
+        config: config,
+        controllers: {}
     };
 
     /**
@@ -101,3 +102,11 @@ var appRouter = (function () {
     return publicMethods;
 
 })();
+
+/**
+ * Initialize the router and molik.js framework after everything is loaded
+ * for the app
+ */
+document.addEventListener("DOMContentLoaded", function() {
+  appRouter.init();
+});

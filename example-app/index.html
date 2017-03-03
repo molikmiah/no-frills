@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>molik.js - a simplistic routing framework by Molik Miah</title>
+        <title>No Frills.js - a simplistic routing framework by Molik Miah</title>
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
 
@@ -25,9 +25,14 @@
     <script src="../node_modules/mustache/mustache.min.js"></script>
 
     <!-- load essential js dependencies -->
-    <script src="../lib/core.router.js"></script>
-    <script src="../lib/core.template-engine.js"></script>
+    <script src="../src/core.router.js"></script>
+    <script src="../src/core.template-engine.js"></script>
+    <script src="../src/core.constructors.js"></script>
 
     <!-- main script for this site -->
     <script src="app.js"></script>
+
+    <!-- load controllers for you app.js web-app -->
+    <script src="./controllers/home.controller.js"></script>
+    <script src="./controllers/about.controller.js"></script>
 </html>

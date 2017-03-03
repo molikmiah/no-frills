@@ -1,40 +1,19 @@
-Router by Molik Miah.
+no-frills.js
+=========
+A minimalistic SPA (Single Page Application) framework without any bloat. This framework is suitable for JavaScript developers who are looking for a base for their applications or to explore and extend the possibilities of this framework.
 
-How to use
-----------
+The framework was created after i asked the question: "How hard can it be to make a Single Page Application framework without so many dependencies", and this is the result!
 
-1. the `index.html` needs a container where the template for each route will be loaded into
-for example `<div id='myApp'></div>`. the id NEEDS TO BE `myApp`
+*Please note: This is an active project, there are still many ways to improve it but most importantly, this was created as a technical exercise.*
 
-2. you need to include `router.js` file in your `index.html` BEFORE your app specific js file
+## Features
+* lightweight
+* router
+* controller (per route)
+* template engine with Mustache integrated
 
-3. you need to start the router in your `app.js` via `appRouter.init();` you can optionally set the watcher
-delay for your route change, default is 200ms. For example if you do `appRouter.init(3000);` the router will only
-check for a route change after 3 seconds which means a user will click on a Link and have to wait upto 3 seconds
-before the change is recognised.
+## Contribute
+Information coming soon...
 
-4. it's wise to add the following namespace for the route `var router = appRouter;` this way you can access
-its public methods which are:
-    - appRouter.navigate() example use `<button onclick="router.navigate('');">Home</button>`
-
-5. you need to define the routes before you do `appRouter.init()`, example of this below:
-~~~~
-router.routeMapper = [
-    {
-        url: '',
-        template: '<h1>Inline template rather than pointing to a url for a view</h1>'
-    },
-
-    {
-        url: '#/about',
-        templateUrl: '/views/about.html'
-    },
-
-    {
-        url: '#/news',
-        templateUrl: '/views/news.html'
-    }
-];
-~~~~
-
-6. `npm run server` will launch a development server at http://localhost:8080 if you have python installed
+## License
+MIT
