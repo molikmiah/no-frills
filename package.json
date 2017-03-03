@@ -2,10 +2,13 @@
   "name": "no-frills",
   "version": "1.0.0",
   "description": "The minimalistic SPA (Single Page Application) framework without any bloat.",
-  "scripts": {
-    "start": ". ./server.sh"
+  "keywords": ['spa', 'framework', 'client framework', 'single page application', 'router', 'mvc', 'mvvc'],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/molikmiah/no-frills.git"
   },
   "author": "Molik A Miah",
+  "license": "MIT",
   "dependencies": {
     "mustache": "^2.3.0"
   }
