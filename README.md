@@ -14,4 +14,5 @@ The framework was created after i asked the question: "How hard can it be to mak
 
 ## License
 [no-frills.js is licensed under MIT](https://github.com/molikmiah/no-frills/blob/master/LICENSE/NO_FRILLS_JS.md)
+
 [3rd party library licenses can be found by clicking here](https://github.com/molikmiah/no-frills/blob/master/LICENSE/3RD_PARTY_LIBRARIES.md)
