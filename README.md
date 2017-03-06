@@ -26,6 +26,11 @@ To use the example-app it will need to be ran via a server/localserver. If you h
 ## Build Instructions
 Please [Visit Here](https://github.com/molikmiah/no-frills/wiki/6.-Build-Instructions) if you would like instructions on how to build the framework on your machine.
 
+## Contribute
+1. Fork this repo
+2. Do your magic
+3. Create a Pull Request
+
 ## License
 Copyright (c) 2017 Molik Miah.
 This framework is licensed under MIT.
