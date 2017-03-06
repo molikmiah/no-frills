@@ -7,7 +7,7 @@ The framework was created after i asked the question: "How hard can it be to mak
 *Please note: This is an active project, there are still many ways to improve it but most importantly, this was created as a technical exercise.*
 
 ## Features
-* Lightweight
+* Lightweight (6.7kB minified, 2.8kB minified & gzipped)
 * Router
 * Controller (per route)
 * Template Engine with Mustache integrated
