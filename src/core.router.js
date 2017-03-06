@@ -6,6 +6,8 @@
  * file  : core.router.js
  * group : core-framework
  * desc  : the main routing framework which handles routes and transitions
+ *
+ * 3rd party dependcies: mustache.js
 */
 
 /**

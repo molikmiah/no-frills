@@ -28,7 +28,21 @@ function emptyLines(number) {
 }
 
 // source files for build
-var buildSource = ['./src/core.router.js', './src/core.template-engine.js', './src/core.constructors.js'];
+var buildSourceOnly = [
+  './node_modules/mustache/mustache.js',
+  './src/core.router.js',
+  './src/core.template-engine.js',
+  './src/core.constructors.js'
+];
+
+var buildSourceWithDependencies = [
+  './node_modules/mustache/mustache.js',
+  './src/core.router.js',
+  './src/core.template-engine.js',
+  './src/core.constructors.js'
+];
+
+var dependenciesSource = './node_modules/mustache/mustache.js';
 
 // create a default task
 gulp.task('default', function() {
@@ -52,16 +66,45 @@ gulp.task('build', ['clean'], function() {
 
   console.log(text.buildTxt('concatenating source files for distribution...'));
   // concat all required files in order
-  gulp.src(buildSource)
-    .pipe(concat('no-frills.js'))
-    .pipe(gulp.dest('./build/'))
-    .pipe(minify())
-    .pipe(gulp.dest('./build/'));
+  if (process.argv.includes('--include=dependencies')) {
+    console.log(text.buildTxt('All 3rd party dependencies are included with the build files: no-frills.js / no-frills-min.js'));
+
+    gulp.src(buildSourceWithDependencies)
+      .pipe(concat('no-frills.js'))
+      .pipe(gulp.dest('./build/'))
+      .pipe(minify())
+      .pipe(gulp.dest('./build/'));
+  }
+  else {
+    gulp.src(buildSourceOnly)
+      .pipe(concat('no-frills.js'))
+      .pipe(gulp.dest('./build/'))
+      .pipe(minify())
+      .pipe(gulp.dest('./build/'));
+
+    gulp.src(dependenciesSource)
+      .pipe(concat('no-frills-dependencies.js'))
+      .pipe(gulp.dest('./build/'))
+      .pipe(minify())
+      .pipe(gulp.dest('./build/'));
+
+
+    console.log(text.buildTxt('Please include no-frills-dependencies.js in your project as these will be dependencies of this framework.'));
+    console.log(text.buildTxt(' no-frills-dependencies.js is required before no-frills.js / no-frills.min,js'));
+    emptyLines();
+    console.log(text.buildTxt('If you want all dependencies bundled in with the built framework .js files then please run the following command:'));
+    console.log('gulp build --include=dependencies');
+  }
 
   emptyLines(2);
-  console.log(text.buildTxt('Build finished.'));
+  console.log(chalk.inverse('Build finished.'));
   console.log(text.buildTxt('Files can be found at ./build/'));
+  console.log(text.buildTxt('Please use *-min.js files for production builds of your web-app.'));
   emptyLines(2);
+
+  if (process.argv.includes('--include=dependencies')) {
+    console.log('hey molik');
+  }
 });
 
 // clean build folder

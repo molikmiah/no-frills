@@ -6,6 +6,8 @@
  * file  : core.template-engine.js
  * group : core-framework
  * desc  : handles getting/rendering templates and binding view to a controller
+ *
+ * 3rd party dependcies: mustache.js
 */
 
 /**

@@ -6,6 +6,8 @@
  * file  : core.constructores.js
  * group : core-framework
  * desc  : handles the main contructors used in the framework.
+ *
+ * 3rd party dependcies: mustache.js
 */
 
 /**
