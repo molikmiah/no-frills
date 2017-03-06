@@ -1,5 +1,5 @@
 no-frills.js
-=========
+============
 A minimalistic SPA (Single Page Application) framework without any bloat. This framework is suitable for JavaScript developers who are looking for a base for their applications or to explore and extend the possibilities of this framework.
 
 The framework was created after i asked the question: "How hard can it be to make a Single Page Application framework without so many dependencies", and this is the result!
@@ -13,8 +13,8 @@ The framework was created after i asked the question: "How hard can it be to mak
 * Template Engine with Mustache integrated
 
 ## Current Version
-The current version is 0.1.0, which is suited for development and production versions.
-The next released should not contain any breaking changes.
+The current version is 0.1.0, which is suited for development and pre-production use.
+The next release will not contain any breaking changes and will include documentation on how to use the framework/library.
 
 ## Usage
 Please read our [Get Started](https://github.com/molikmiah/no-frills/blob/master/GETSTARTED.md) guide for installation instructions.

@@ -12,7 +12,7 @@
             <div class="nav">
                 <button onclick="router.navigate('');">Home</button>
                 <button onclick="router.navigate('/about');">About Us</button>
-                <button onclick="router.navigate('/news');">News</button>
+                <a href="#/news">News anchor link</a>
             </div>
 
             <!-- views will be rendered in #myApp -->
@@ -21,13 +21,8 @@
         </div>
     </body>
 
-    <!-- include 3rd party libraries -->
-    <script src="../node_modules/mustache/mustache.min.js"></script>
-
-    <!-- load essential js dependencies -->
-    <script src="../src/core.router.js"></script>
-    <script src="../src/core.template-engine.js"></script>
-    <script src="../src/core.constructors.js"></script>
+    <!-- no frills js -->
+    <script src="../build/no-frills-min.js"></script>
 
     <!-- main script for this site -->
     <script src="app.js"></script>
