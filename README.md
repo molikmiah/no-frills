@@ -24,13 +24,7 @@ We have includes an [Exampe Web-App](https://github.com/molikmiah/no-frills/tree
 To use the example-app it will need to be ran via a server/localserver. If you have python installed you can run the following command from the example-app folder `python -m SimpleHTTPServer 8080` and then visit http://localhost:8080
 
 ## Build Instructions
-* Node.js and NPM required before you can build this framework
-* Using `terminal` or `powershell` `cd` into the root directory of this framework
-* Run command `npm install` to install all the required dependencies and tools to build the framework
-* Run command `gulp build` to build the framework. This output the built files to `/build/` folder, this includes `no-frills.js` and `no-frills-dependencies.js`
-* Run command `gulp build --include=dependencies` to build the framework and include all dependencies with the built no-frills.js files
-* Build files include a `*-min.js` variant, which has been minimized, please use this for production builds.
-* Include the files from build js at the bottom of your `html's </body>`
+Please [Visit Here](https://github.com/molikmiah/no-frills/wiki/6.-Build-Instructions) if you would like instructions on how to build the framework on your machine.
 
 ## License
 Copyright (c) 2017 Molik Miah.
