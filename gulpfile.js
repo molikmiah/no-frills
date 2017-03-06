@@ -57,12 +57,15 @@ gulp.task('build', ['clean'], function() {
     .pipe(gulp.dest('./build/'))
     .pipe(minify())
     .pipe(gulp.dest('./build/'));
+
+  emptyLines(2);
+  console.log(text.buildTxt('Build finished.'));
+  console.log(text.buildTxt('Files can be found at ./build/'));
+  emptyLines(2);
 });
 
 // clean build folder
 gulp.task('clean', function() {
-  console.log(text.error('Cleaning out the build folder...'));
-  del('./build/**.*', function(paths) {
-     console.log('Deleted files and folders:\n', paths.join('\n'));
-  });
+  console.log(text.buildTxt('Cleaning out the build folder...'));
+  del('./build/**.*');
 });
