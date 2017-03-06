@@ -20,6 +20,7 @@ The next release will not contain any breaking changes and will include document
 Please read our [Get Started](https://github.com/molikmiah/no-frills/blob/master/GETSTARTED.md) guide for installation instructions.
 
 We have includes an [Exampe Web-App](https://github.com/molikmiah/no-frills/tree/master/example-app) which you can view and use as a boilerplate/starter. This example app demonstrates setting up routes and controllers.
+To use the example-app it will need to be ran via a server/localserver. If you have python installed you can run the following command from the example-app folder `python -m SimpleHTTPServer 8080` and then visit http://localhost:8080
 
 ## Build Instructions
 * Node.js and NPM required before you can build this framework
