@@ -1,6 +1,6 @@
 {
   "name": "no-frills",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "The minimalistic SPA (Single Page Application) framework without any bloat.",
   "keywords": [
     "spa",
