@@ -7,7 +7,7 @@ The framework was created after i asked the question: "How hard can it be to mak
 *Please note: This is an active project, there are still many ways to improve it but most importantly, this was created as a technical exercise.*
 
 ## Features
-* Lightweight
+* Lightweight (6.7kB minified, 2.8kB minified & gzipped)
 * Router
 * Controller (per route)
 * Template Engine with Mustache integrated
@@ -25,6 +25,11 @@ To use the example-app it will need to be ran via a server/localserver. If you h
 
 ## Build Instructions
 Please [Visit Here](https://github.com/molikmiah/no-frills/wiki/6.-Build-Instructions) if you would like instructions on how to build the framework on your machine.
+
+## Contribute
+1. Fork this repo
+2. Do your magic
+3. Create a Pull Request
 
 ## License
 Copyright (c) 2017 Molik Miah.
