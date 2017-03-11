@@ -740,6 +740,14 @@ document.addEventListener("DOMContentLoaded", function () {
 */
 ;
 /**
+ * Extend String with new method of includes if this doesn't exist in current ES Version
+ */
+if (!String.prototype.includes) {
+    String.prototype.includes = function (arg) {
+        return !!~this.indexOf(arg);
+    };
+}
+/**
  * Namespace
  */
 var tpl = (function () {

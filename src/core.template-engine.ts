@@ -16,11 +16,20 @@
 declare var Mustache: any;
 
 /**
- * String Interface needs to be updated with the include method as available in ES6
+ * String Interface needs to be updated with the include method
  */
 interface String {
     includes(searchString: string): boolean;
 };
+
+/**
+ * Extend String with new method of includes if this doesn't exist in current ES Version
+ */
+if (!String.prototype.includes) {
+    String.prototype.includes = function (arg: string): boolean {
+        return !!~this.indexOf(arg);
+    };
+}
 
 /**
  * Interfact for the structure of our Routes object which will be set up by the consumer
