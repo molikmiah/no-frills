@@ -1,14 +1,19 @@
-/*
+/*!
  * no-frills.js
  * Copyright 2017 Molik Miah, MIT LICENSE.
  * W: http://molikmiah.githib,io | http://molik.co.uk
  *
- * file  : core.template-engine.js
+ * file  : core.template-engine.ts
  * group : core-framework
  * desc  : handles getting/rendering templates and binding view to a controller
  *
  * 3rd party dependcies: mustache.js
 */
+
+/**
+ * Declare Mustache, as this is available globally
+ */
+declare var Mustache: any;
 
 /**
  * Namespace

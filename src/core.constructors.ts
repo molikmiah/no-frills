@@ -1,9 +1,9 @@
-/*
+/*!
  * no-frills.js
  * Copyright 2017 Molik Miah, MIT LICENSE.
  * W: http://molikmiah.githib,io | http://molik.co.uk
  *
- * file  : core.constructores.js
+ * file  : core.constructors.ts
  * group : core-framework
  * desc  : handles the main contructors used in the framework.
  *

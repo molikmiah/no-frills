@@ -1,10 +1,10 @@
 // require gulp packages
 var gulp  = require('gulp'),
-    gutil = require('gulp-util'),
     chalk = require('chalk'),
     concat = require('gulp-concat'),
     minify = require('gulp-minify'),
-    del = require('del');
+    del = require('del'),
+    ts = require("gulp-typescript");
 
 // text styling used in console output
 var text = {
@@ -29,20 +29,16 @@ function emptyLines(number) {
 
 // source files for build
 var buildSourceOnly = [
-  './node_modules/mustache/mustache.js',
-  './src/core.router.js',
-  './src/core.template-engine.js',
-  './src/core.constructors.js'
-];
-
-var buildSourceWithDependencies = [
-  './node_modules/mustache/mustache.js',
-  './src/core.router.js',
-  './src/core.template-engine.js',
-  './src/core.constructors.js'
+  './src/core.router.ts',
+  './src/core.template-engine.ts',
+  './src/core.constructors.ts'
 ];
 
 var dependenciesSource = './node_modules/mustache/mustache.js';
+var tempFolder = './temp/';
+var compiledTstoJsFiles = './temp/**/*';
+var licenses = ['./LICENSE.md'];
+var buildDestination = './build/';
 
 // create a default task
 gulp.task('default', function() {
@@ -52,11 +48,12 @@ gulp.task('default', function() {
   emptyLines(2);
   console.log(chalk.inverse('Available Commands:'));
   console.log('gulp build');
+  console.log('gulp compile-typescript');
   emptyLines(2);
 });
 
 // build task
-gulp.task('build', ['clean'], function() {
+gulp.task('build', ['clean', 'clean-tmp', 'compile-typescript', 'copy-license'], function() {
   emptyLines();
   console.log(text.brandBold('no-frills.js'));
   console.log(text.brand('Copyright (c) 2017 Molik Miah. MIT license.'));
@@ -64,50 +61,49 @@ gulp.task('build', ['clean'], function() {
   console.log(chalk.inverse('Building framework for distribution...'));
   emptyLines(2);
 
-  console.log(text.buildTxt('concatenating source files for distribution...'));
+  console.log(text.buildTxt('Concatenating source files for distribution...'));
+
   // concat all required files in order
-  if (process.argv.includes('--include=dependencies')) {
-    console.log(text.buildTxt('All 3rd party dependencies are included with the build files: no-frills.js / no-frills-min.js'));
-
-    gulp.src(buildSourceWithDependencies)
+  gulp.src([dependenciesSource, compiledTstoJsFiles])
       .pipe(concat('no-frills.js'))
-      .pipe(gulp.dest('./build/'))
+      .pipe(gulp.dest(buildDestination))
       .pipe(minify())
-      .pipe(gulp.dest('./build/'));
-  }
-  else {
-    gulp.src(buildSourceOnly)
-      .pipe(concat('no-frills.js'))
-      .pipe(gulp.dest('./build/'))
-      .pipe(minify())
-      .pipe(gulp.dest('./build/'));
+      .pipe(gulp.dest(buildDestination));
 
-    gulp.src(dependenciesSource)
-      .pipe(concat('no-frills-dependencies.js'))
-      .pipe(gulp.dest('./build/'))
-      .pipe(minify())
-      .pipe(gulp.dest('./build/'));
-
-    console.log(text.buildTxt('Please include no-frills-dependencies.js in your project as these will be dependencies of this framework.'));
-    console.log(text.buildTxt(' no-frills-dependencies.js is required before no-frills.js / no-frills.min,js'));
-    emptyLines();
-    console.log(text.buildTxt('If you want all dependencies bundled in with the built framework .js files then please run the following command:'));
-    console.log('gulp build --include=dependencies');
-  }
+  del(tempFolder);
 
   emptyLines(2);
   console.log(chalk.inverse('Build finished.'));
-  console.log(text.buildTxt('Files can be found at ./build/'));
-  console.log(text.buildTxt('Please use *-min.js files for production builds of your web-app.'));
+  console.log(text.buildTxt('Files can be found at ' + buildDestination));
   emptyLines(2);
-
-  if (process.argv.includes('--include=dependencies')) {
-    console.log('hey molik');
-  }
 });
 
-// clean build folder
+// clean up folders
 gulp.task('clean', function() {
   console.log(text.buildTxt('Cleaning out the build folder...'));
-  del('./build/**.*');
+  del(buildDestination + '**.*');
+});
+
+gulp.task('clean-tmp', function() {
+  console.log(text.buildTxt('Cleaning out the temp folder...'));
+  del(tempFolder);
+});
+
+// typescript compiler
+gulp.task('compile-typescript', function() {
+  console.log(text.buildTxt('Compiling TypeScript to JavaScript src files...'));
+      return gulp.src(buildSourceOnly)
+        .pipe(ts({
+            noImplicitAny: true,
+            out: 'output.js'
+        }))
+        .pipe(gulp.dest(tempFolder));
+});
+
+// copy license file into build directory, as required for distribution
+gulp.task('copy-license', function() {
+  console.log(text.buildTxt('Copying relevant license files into the build directory.'));
+
+  gulp.src(licenses)
+      .pipe(gulp.dest(buildDestination));
 });

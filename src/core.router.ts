@@ -1,9 +1,9 @@
-/*
+/*!
  * no-frills.js
  * Copyright 2017 Molik Miah, MIT LICENSE.
  * W: http://molikmiah.githib,io | http://molik.co.uk
  *
- * file  : core.router.js
+ * file  : core.router.ts
  * group : core-framework
  * desc  : the main routing framework which handles routes and transitions
  *
@@ -58,7 +58,7 @@ var appRouter = (function () {
      * trigger the loadPage()
      * @param {number} delay The timer delay in ms
      */
-    function _listen (delay) {
+    function _listen (delay?) {
         // default delay if none specified
         if (!delay) {
             delay = config.defaultRouteCheckerDelay;
