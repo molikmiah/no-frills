@@ -88,7 +88,6 @@ gulp.task('build', ['clean'], function() {
       .pipe(minify())
       .pipe(gulp.dest('./build/'));
 
-
     console.log(text.buildTxt('Please include no-frills-dependencies.js in your project as these will be dependencies of this framework.'));
     console.log(text.buildTxt(' no-frills-dependencies.js is required before no-frills.js / no-frills.min,js'));
     emptyLines();
