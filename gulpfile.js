@@ -53,7 +53,7 @@ gulp.task('default', function() {
 });
 
 // build task
-gulp.task('build', ['clean', 'clean-tmp', 'compile-typescript', 'copy-license'], function() {
+gulp.task('build', ['clean', 'clean-tmp', 'copy-license', 'compile-typescript'], function() {
   emptyLines();
   console.log(text.brandBold('no-frills.js'));
   console.log(text.brand('Copyright (c) 2017 Molik Miah. MIT license.'));
@@ -81,29 +81,30 @@ gulp.task('build', ['clean', 'clean-tmp', 'compile-typescript', 'copy-license'],
 // clean up folders
 gulp.task('clean', function() {
   console.log(text.buildTxt('Cleaning out the build folder...'));
-  del(buildDestination + '**.*');
+  return del(buildDestination + '**.*');
 });
 
 gulp.task('clean-tmp', function() {
   console.log(text.buildTxt('Cleaning out the temp folder...'));
-  del(tempFolder);
+  return del(tempFolder);
 });
 
 // typescript compiler
 gulp.task('compile-typescript', function() {
   console.log(text.buildTxt('Compiling TypeScript to JavaScript src files...'));
-      return gulp.src(buildSourceOnly)
-        .pipe(ts({
-            noImplicitAny: true,
-            out: 'output.js'
-        }))
-        .pipe(gulp.dest(tempFolder));
+
+  return gulp.src(buildSourceOnly)
+             .pipe(ts({
+                 noImplicitAny: true,
+                 out: 'output.js'
+             }))
+             .pipe(gulp.dest(tempFolder));
 });
 
 // copy license file into build directory, as required for distribution
 gulp.task('copy-license', function() {
   console.log(text.buildTxt('Copying relevant license files into the build directory.'));
 
-  gulp.src(licenses)
+  return gulp.src(licenses)
       .pipe(gulp.dest(buildDestination));
 });
