@@ -1,7 +1,7 @@
 {
   "name": "no-frills",
   "version": "0.1.0",
-  "description": "The minimalistic SPA (Single Page Application) framework without any bloat.",
+  "description": "A minimalistic SPA (Single Page Application) framework without any bloat.",
   "keywords": [
     "spa",
     "framework",
@@ -18,12 +18,14 @@
   "author": "Molik A Miah",
   "license": "MIT",
   "dependencies": {
-    "del": "^2.2.2",
     "mustache": "^2.3.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
-    "gulp-minify": "0.0.15"
+    "gulp-minify": "0.0.15",
+    "del": "^2.2.2",
+    "typescript": "^2.2.1",
+    "gulp-typescript": "^3.1.5"
   }
 }

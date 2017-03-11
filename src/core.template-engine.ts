@@ -1,14 +1,46 @@
-/*
+/*!
  * no-frills.js
  * Copyright 2017 Molik Miah, MIT LICENSE.
  * W: http://molikmiah.githib,io | http://molik.co.uk
  *
- * file  : core.template-engine.js
+ * file  : core.template-engine.ts
  * group : core-framework
  * desc  : handles getting/rendering templates and binding view to a controller
  *
  * 3rd party dependcies: mustache.js
 */
+
+/**
+ * Declare Mustache, as this is available globally
+ */
+declare var Mustache: any;
+
+/**
+ * String Interface needs to be updated with the include method
+ */
+interface String {
+    includes(searchString: string): boolean;
+};
+
+/**
+ * Extend String with new method of includes if this doesn't exist in current ES Version
+ */
+if (!String.prototype.includes) {
+    String.prototype.includes = function (arg: string): boolean {
+        return !!~this.indexOf(arg);
+    };
+}
+
+/**
+ * Interfact for the structure of our Routes object which will be set up by the consumer
+ * of this framework.
+ */
+interface IRoutes {
+    url: string,
+    template?: string,
+    templateUrl?: string,
+    controller?: string
+}
 
 /**
  * Namespace
@@ -30,7 +62,7 @@ var tpl = (function () {
      * @param {string} routeData This routeData object contains the filePath and data
      * @param {string} bootstrapId This is where the template will be injected
      */
-    function _getTemplate(routeData, bootstrapId) {
+    function _getTemplate(routeData: IRoutes, bootstrapId: string) {
         // validation, only allow getTemplate() to be used to get .html files
         if (routeData.templateUrl.includes('.html') === false) {
             throw new Error('getTemplate() can only be used to get .html template files. Please ensure ' +
@@ -48,7 +80,7 @@ var tpl = (function () {
 
             // on success
             // get controller for this view
-            var controller = null;
+            var controller: any;
             if (routeData.controller) {
                 controller = appRouter.controllers[routeData.controller];
             }
@@ -72,7 +104,7 @@ var tpl = (function () {
      * @param {string} routeData This routeData object contains the filePath and data
      * @param {string} bootstrapId This is where the template will be injected
      */
-    function _processTemplate(routeData, bootstrapId) {
+    function _processTemplate(routeData: IRoutes, bootstrapId: string) {
         // get controller for this view
         var controller = appRouter.controllers[routeData.controller];
 
