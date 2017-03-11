@@ -19,7 +19,7 @@
  *  // the template it is linked to
  * });
  */
-function Controller(evaluate) {
+function Controller(evaluate: any) {
     if (typeof evaluate === 'function') {
         return evaluate();
     }

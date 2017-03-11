@@ -23,9 +23,9 @@ var appRouter = (function () {
     var publicMethods = {
         navigate: _navigate,
         init: _listen,
-        routeMapper: null,
+        routeMapper: <any>{},
         config: config,
-        controllers: {}
+        controllers: <any>[]
     };
 
     /**
@@ -42,13 +42,13 @@ var appRouter = (function () {
     /**
      * Private var used by the _listen() function
      */
-    var url = null;
+    var url: string;
 
     /**
      * This function can be called to navigate to given 'path'
      * @param {string} path
      */
-    function _navigate (path) {
+    function _navigate (path: string) {
         var current = window.location.href;
         window.location.href = current.replace(/#(.*)$/, '') + '#' + path;
     }
@@ -58,7 +58,7 @@ var appRouter = (function () {
      * trigger the loadPage()
      * @param {number} delay The timer delay in ms
      */
-    function _listen (delay?) {
+    function _listen (delay?: number) {
         // default delay if none specified
         if (!delay) {
             delay = config.defaultRouteCheckerDelay;
@@ -81,9 +81,9 @@ var appRouter = (function () {
      * @param {string} param This is the hash and it will be used to determine which template to inject
      * @param {string} bootstrapId This is the html element id used to insert the template content
      */
-    function _loadPage (param, bootstrapId) {
+    function _loadPage (param: string, bootstrapId: string) {
         // find the correct route object from the Array of route definitions
-        var requestedRouteObject = appRouter.routeMapper.find(function(routeObj) {
+        var requestedRouteObject = appRouter.routeMapper.find(function(routeObj: any) {
             return routeObj.url === param;
         });
 

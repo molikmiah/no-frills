@@ -16,6 +16,24 @@
 declare var Mustache: any;
 
 /**
+ * String Interface needs to be updated with the include method as available in ES6
+ */
+interface String {
+    includes(searchString: string): boolean;
+};
+
+/**
+ * Interfact for the structure of our Routes object which will be set up by the consumer
+ * of this framework.
+ */
+interface IRoutes {
+    url: string,
+    template?: string,
+    templateUrl?: string,
+    controller?: string
+}
+
+/**
  * Namespace
  */
 var tpl = (function () {
@@ -35,7 +53,7 @@ var tpl = (function () {
      * @param {string} routeData This routeData object contains the filePath and data
      * @param {string} bootstrapId This is where the template will be injected
      */
-    function _getTemplate(routeData, bootstrapId) {
+    function _getTemplate(routeData: IRoutes, bootstrapId: string) {
         // validation, only allow getTemplate() to be used to get .html files
         if (routeData.templateUrl.includes('.html') === false) {
             throw new Error('getTemplate() can only be used to get .html template files. Please ensure ' +
@@ -53,7 +71,7 @@ var tpl = (function () {
 
             // on success
             // get controller for this view
-            var controller = null;
+            var controller: any;
             if (routeData.controller) {
                 controller = appRouter.controllers[routeData.controller];
             }
@@ -77,7 +95,7 @@ var tpl = (function () {
      * @param {string} routeData This routeData object contains the filePath and data
      * @param {string} bootstrapId This is where the template will be injected
      */
-    function _processTemplate(routeData, bootstrapId) {
+    function _processTemplate(routeData: IRoutes, bootstrapId: string) {
         // get controller for this view
         var controller = appRouter.controllers[routeData.controller];
 

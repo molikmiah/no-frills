@@ -651,9 +651,9 @@ var appRouter = (function () {
     var publicMethods = {
         navigate: _navigate,
         init: _listen,
-        routeMapper: null,
+        routeMapper: {},
         config: config,
-        controllers: {}
+        controllers: []
     };
     /**
      * Configuration
@@ -668,7 +668,7 @@ var appRouter = (function () {
     /**
      * Private var used by the _listen() function
      */
-    var url = null;
+    var url;
     /**
      * This function can be called to navigate to given 'path'
      * @param {string} path
@@ -738,6 +738,7 @@ document.addEventListener("DOMContentLoaded", function () {
  *
  * 3rd party dependcies: mustache.js
 */
+;
 /**
  * Namespace
  */
@@ -771,7 +772,7 @@ var tpl = (function () {
             }
             // on success
             // get controller for this view
-            var controller = null;
+            var controller;
             if (routeData.controller) {
                 controller = appRouter.controllers[routeData.controller];
             }
